@@ -27,7 +27,12 @@ shinyUI(fluidPage(
       )
 
     ),
-    mainPanel(dygraphOutput("dygraph"))
+    mainPanel(
+      tabsetPanel(
+        tabPanel("Levels",dygraphOutput("dygraph.1")),
+        tabPanel("Difference", dygraphOutput("dygraph.2"))
+        ))
+       )
   )
-))
+)
 

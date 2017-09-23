@@ -16,11 +16,22 @@ shinyServer(function(input, output) {
     y   <- first(readings.xts[paste0(input$date, "/"), 4], "1 day")
   })
   
-  output$dygraph <- renderDygraph({
+  selection.diff <- reactive({
+    x <-  (first(readings.diff[paste0(input$date, "/")], "1 day"))
+  })
+  
+  output$dygraph.1 <- renderDygraph({
     
     dygraph(selection(), main = "Energy (kWh)")
     
 
+  })
+  
+  output$dygraph.2 <- renderDygraph({
+    
+    dygraph(selection.diff(), main = "Change in Energy (kWh)")
+    
+    
   })
   
 })
