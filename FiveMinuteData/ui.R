@@ -30,7 +30,8 @@ shinyUI(fluidPage(
     mainPanel(
       tabsetPanel(
         tabPanel("Levels",dygraphOutput("dygraph.1")),
-        tabPanel("Difference", dygraphOutput("dygraph.2"))
+        tabPanel("Difference", dygraphOutput("dygraph.2")),
+        tabPanel("Levels vs Temperature", dygraphOutput("dygraph.3"))
         ))
        )
   )
