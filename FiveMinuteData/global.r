@@ -15,5 +15,8 @@ readings.diff <- xts(diff.xts(as.numeric(readings.xts[,4])),order.by = readings[
 
 # Add temperature data to electricity readings data
 data <- merge(readings, temperature, by="Date")  
-data <- data[, c(2,6,11,12)]
-data.xts <- xts(data[,-1], order.by = data[,1])
+data <- data[, c(1,2,6,11)]
+#data$Date <- as.Date(data$Date, format = "%d-%M-%Y")
+
+data.xts <- xts(data[,-2], order.by = data[,2])
+

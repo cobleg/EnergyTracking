@@ -16,22 +16,22 @@ shinyUI(fluidPage(
   
   sidebarLayout(
     sidebarPanel(
-      uiOutput("slider"),
-      
       sliderInput(
-        "date",
-        label = "Select date",
-        value = as.Date("01-01-2016", "%d-%m-%Y"),
-        min = as.Date("23-11-2014", "%d-%m-%Y"),
-        max = as.Date("31-08-2016", "%d-%m-%Y")
-      )
+        'maxTemp',
+        label = "Select maximum temperature",
+        value = 40,
+        min = 25,
+        max = 45,
+        step = 1), # subset on temperature
 
+      uiOutput("selector")
     ),
     mainPanel(
       tabsetPanel(
         tabPanel("Levels",dygraphOutput("dygraph.1")),
         tabPanel("Difference", dygraphOutput("dygraph.2")),
-        tabPanel("Levels vs Temperature", dygraphOutput("dygraph.3"))
+        tabPanel("Levels vs Temperature", dygraphOutput("dygraph.3")),
+        tabPanel("Levels vs Temperature", dataTableOutput("table")) #
         ))
        )
   )
